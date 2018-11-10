@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Empresa
 
 
@@ -13,3 +13,8 @@ class EmpresaCreate(CreateView):
         funcionario.empresa = obj
         funcionario.save()
         return HttpResponse('Ok')
+
+
+class EmpresaEdit(UpdateView):
+    model = Empresa
+    fields = ['nome']
