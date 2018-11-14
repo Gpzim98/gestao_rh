@@ -1,7 +1,9 @@
+from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
     CreateView,
-    UpdateView
+    UpdateView,
+    DeleteView
 )
 from .models import Departamento
 
@@ -28,3 +30,8 @@ class DepartamentoCreate(CreateView):
 class DepartamentoUpdate(UpdateView):
     model = Departamento
     fields = ['nome']
+
+
+class DepartamentoDelete(DeleteView):
+    model = Departamento
+    success_url = reverse_lazy('list_departamentos')
