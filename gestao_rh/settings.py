@@ -6,7 +6,7 @@ SECRET_KEY = 'wmy(n$=uo7%d%b23_ah)q+ywi-f6d!y%2d4pvp5ctf6c8su)c$'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.254.220.85',]
+ALLOWED_HOSTS = ['34.254.220.85', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'apps.documentos',
     'apps.registro_hora_extra',
     'apps.core',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +91,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "staticfiles"),
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
