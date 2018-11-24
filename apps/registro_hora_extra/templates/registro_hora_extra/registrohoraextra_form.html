@@ -18,12 +18,14 @@
 
     {% endif %}
 
+    <button onclick="utilizouHoraExtra({{ object.id }})"
+            class="btn btn-info" type="button">
+        Marcar como utilizada
+    </button>
+
 </form>
 
-
-        <button onclick="utilizouHoraExtra({{ object.id }})" class="btn btn-info">
-            Marcar como utilizado
-        </button>
+<h2 id="horas_atualizadas"> {{ object.funcionario.total_horas_extra }}..</h2>
 
 <br>
 <p id="mensagem"></p>
