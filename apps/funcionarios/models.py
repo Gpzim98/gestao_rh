@@ -19,9 +19,10 @@ class Funcionario(models.Model):
 
     @property
     def total_horas_extra(self):
-        total = self.registrohoraextra_set.all().aggregate(
+        total = self.registrohoraextra_set.filter(
+            utilizada=False).aggregate(
             Sum('horas'))['horas__sum']
-        return total
+        return total or 0
 
     def __str__(self):
         return self.nome
