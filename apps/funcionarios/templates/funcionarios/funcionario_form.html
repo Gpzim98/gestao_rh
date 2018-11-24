@@ -31,7 +31,9 @@
 <ul>
 {% for registro_hora in object.registrohoraextra_set.all %}
     <li>
-        {{ registro_hora.motivo  }} | {{ registro_hora.horas }} <br>
+        <a href="{% url 'update_hora_extra' registro_hora.id %}">
+            {{ registro_hora.motivo  }} | {{ registro_hora.horas }} <br>
+        </a>
     </li>
 {% endfor %}
 </ul>
