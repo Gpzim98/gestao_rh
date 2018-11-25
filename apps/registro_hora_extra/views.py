@@ -1,3 +1,4 @@
+import csv
 import json
 
 from django.http import HttpResponse
@@ -36,7 +37,8 @@ class HoraExtraEdit(UpdateView):
 class HoraExtraEditBase(UpdateView):
     model = RegistroHoraExtra
     form_class = RegistroHoraExtraForm
-    #success_url = reverse_lazy('update_hora_extra_base')
+
+    # success_url = reverse_lazy('update_hora_extra_base')
 
     def get_success_url(self):
         return reverse_lazy('update_hora_extra_base', args=[self.object.id])
@@ -64,7 +66,6 @@ class HoraExtraNovo(CreateView):
 
 class UtilizouHoraExtra(View):
     def post(self, *args, **kwargs):
-
         registro_hora_extra = RegistroHoraExtra.objects.get(id=kwargs['pk'])
         registro_hora_extra.utilizada = True
         registro_hora_extra.save()
@@ -74,7 +75,26 @@ class UtilizouHoraExtra(View):
         response = json.dumps(
             {'mensagem': 'Requisicao executada',
              'horas': float(empregado.total_horas_extra)
-            }
+             }
         )
 
         return HttpResponse(response, content_type='application/json')
+
+
+class ExportarParaCSV(View):
+    def get(self, request):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
+
+        registro_he = RegistroHoraExtra.objects.filter(utilizada=False)
+
+        writer = csv.writer(response)
+        writer.writerow(['Id', 'Motivo', 'Funcionario', 'Rest. Func', 'Horas'])
+
+        for registro in registro_he:
+            writer.writerow(
+                [registro.id, registro.motivo, registro.funcionario,
+                 registro.funcionario.total_horas_extra, registro.horas
+                 ])
+
+        return response
