@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
+{% block staticcss %}
+    <style>
+        .teste { color: red; }
+    </style>
+{% endblock %}
+
 
 {% block main %}
-    <h1>Meu relatorio</h1>
+    <h1 class="teste">Meu relatorio</h1>
     <h2>{{ sales }}</h2>
 
     <a href="{% url 'relatorio_funcionarios_html' %}" class="btn btn-info">
