@@ -10,4 +10,3 @@ class RegistroHoraExtraViewSet(viewsets.ModelViewSet):
     serializer_class = RegistroHoraExtraSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    
