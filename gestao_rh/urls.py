@@ -4,12 +4,14 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
+from apps.funcionarios.api.views import FuncionarioViewSet
 from rest_framework import routers
 from apps.core import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'api/funcionarios', FuncionarioViewSet)
 
 
 urlpatterns = [
