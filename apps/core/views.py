@@ -15,7 +15,7 @@ def home(request):
 
 
 def celery(request):
-    send_relatorio()
+    send_relatorio.delay()
     return HttpResponse('Foi')
 
 
