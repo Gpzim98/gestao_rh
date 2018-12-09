@@ -16,7 +16,7 @@ def home(request):
 
 def celery(request):
     send_relatorio.delay()
-    return HttpResponse('Foi')
+    return HttpResponse('Tarefa incluida na fila para execucao')
 
 
 class UserViewSet(viewsets.ModelViewSet):

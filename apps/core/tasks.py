@@ -1,6 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from django.core.mail import send_mail
+from apps.funcionarios.models import Funcionario
 
 
 @shared_task
@@ -20,11 +21,12 @@ def xsum(numbers):
 
 @shared_task
 def send_relatorio():
+    total = Funcionario.objects.all().count()
     send_mail(
-        'Subject here',
-        'Here is the message.',
+        'Relatorio Celery',
+        'Relatorio geral de funcionarios %f' % total,
         'django@gregorypacheco.com.br',
-        ['contato@gregorypacheco.com.br'],
+        ['openshift@gregorypacheco.com.br'],
         fail_silently=False,
     )
 
