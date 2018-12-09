@@ -111,3 +111,10 @@ CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
+
+EMAIL_HOST = 'mail.gregorypacheco.com.br'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'django@gregorypacheco.com.br'
+EMAIL_HOST_PASSWORD = 'cpsess1146779865'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
