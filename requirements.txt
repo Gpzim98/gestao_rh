@@ -9,7 +9,9 @@ cssselect2==0.2.1
 defusedxml==0.5.0
 Django==2.1.1
 django-bootstrap-form==3.4
+django-celery-beat==1.4.0
 django-celery-results==1.0.4
+django-timezone-field==3.0
 djangorestframework==3.9.0
 html5lib==1.0.1
 kombu==4.2.2
@@ -17,6 +19,8 @@ Pillow==5.3.0
 pycparser==2.19
 PyPDF2==1.26.0
 Pyphen==0.9.5
+python-crontab==2.3.5
+python-dateutil==2.7.5
 pytz==2018.5
 redis==3.0.1
 reportlab==3.5.11

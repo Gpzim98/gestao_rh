@@ -30,4 +30,4 @@ def send_relatorio():
         fail_silently=False,
     )
 
-    return True
+    return 'Email sent'

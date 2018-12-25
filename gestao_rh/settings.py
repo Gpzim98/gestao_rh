@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'apps.core',
     'bootstrapform',
     'django_celery_results',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -101,7 +102,7 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'rehome'
 
 LOGOUT_REDIRECT_URL = 'login'
 

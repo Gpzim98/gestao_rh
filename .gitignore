@@ -6,3 +6,7 @@ gestao_rh/__pycache__/
 gestao_rh.pem
 media
 static
+*.bak
+*.dat
+*.pid
+*.dir
