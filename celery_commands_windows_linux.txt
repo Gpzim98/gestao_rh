@@ -1,0 +1,28 @@
+Rodar apenas o Celery workers Linux
+celery -A gestao_rh worker -l info
+
+Rodar apenas o Celery workers Windows
+celery -A gestao_rh worker --pool=solo -l info
+
+Rodar Celery Beat windows ( precisa rodar os 2 separadamente )
+celery -A gestao_rh beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+Rodar Celery workers e Celery Beat Linux
+celery -A gestao_rh worker -l info -B --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+
+
+[Unit]
+Description=Celery Service
+After=network.target
+
+[Service]
+Type=forking
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/gestao_rh
+ExecStart=/bin/sh -c '/home/ubuntu/venv/bin/celery -A gestao_rh worker -l info -B --scheduler django_celery_beat.schedulers:DatabaseScheduler &'
+ExecStop=/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target

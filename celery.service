@@ -1,0 +1,14 @@
+[Unit]
+Description=Celery Service
+After=network.target
+
+[Service]
+Type=forking
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/gestao_rh
+ExecStart=/bin/sh -c '/home/ubuntu/venv/bin/celery -A gestao_rh worker -l info -B --scheduler django_celery_beat.schedulers:DatabaseScheduler &'
+ExecStop=/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target
