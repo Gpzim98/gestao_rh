@@ -63,25 +63,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gestao_rh.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    'antigo': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'dbantigo.sqlite3'),
-    },
-    'postgres': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'curso3',
-        'USER': 'usercurso3',
-        'PASSWORD': 'password123',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -125,16 +106,12 @@ LOGOUT_REDIRECT_URL = 'login'
 
 CELERY_RESULT_BACKEND = 'django-db'
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
+
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 
-EMAIL_HOST = 'mail.gregorypacheco.com.br'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'django@gregorypacheco.com.br'
-EMAIL_HOST_PASSWORD = 'cpsess1146779865'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
 
 DATABASE_ROUTERS = ['gestao_rh.DBRoutes.DBRoutes']
+
+from .local_settings import *
