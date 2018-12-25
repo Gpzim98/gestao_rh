@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'django_celery_results',
     'django_celery_beat',
+    'apps.app_antiga'
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'antigo': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'dbantigo.sqlite3'),
     }
 }
 
@@ -123,3 +128,5 @@ EMAIL_HOST_USER = 'django@gregorypacheco.com.br'
 EMAIL_HOST_PASSWORD = 'cpsess1146779865'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+DATABASE_ROUTERS = ['gestao_rh.DBRoutes.DBRoutes']
