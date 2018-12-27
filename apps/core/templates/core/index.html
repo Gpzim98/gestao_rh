@@ -4,27 +4,11 @@
 {% block main %}
    <div class="row">
     <div class="col-sm">
-        <!--{% trans "One of three columns" %}-->
-        {% blocktrans %}
-        My big block
-        of text
-        must go right here
-        {% endblocktrans %}
-    </div>
-    <div class="col-sm">
-      {% trans "Hi" %} {{ usuario.funcionario.nome }}
-        <a href="{% url 'list_funcionarios' %}">Generenciar funcionarios</a>
-        <a href="{% url 'list_departamentos' %}">Generenciar departamentos</a>
-        <a href="{% url 'list_hora_extra' %}">Generenciar Banco de horas</a>
-    </div>
-    <div class="col-sm">
-        <a href="{% url 'logout' %}">Logout</a>
 
-        {% if usuario.funcionario.empresa %}
-            <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar empresa</a>
-        {% else %}
-            <a href="{% url 'create_empresa' %}">Criar empresa</a>
-        {% endif %}
+    </div>
+
+    <div class="col-sm">
+
     </div>
   </div>
 {% endblock %}

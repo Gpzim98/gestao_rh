@@ -1,0 +1,37 @@
+{% load i18n %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{% url 'home' %}">{% trans "Gestao RH" %}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list_funcionarios' %}">Funcionarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'list_departamentos' %}">Departamentos</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Banco de horas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'list_hora_extra' %}">Gerenciar banco de horas</a>
+          <a class="dropdown-item" href="{% url 'exportar_csv' %}">Exportar para CSV</a>
+          <a class="dropdown-item" href="{% url 'exportar_excel' %}">Exportar para Excel</a>
+          <a class="dropdown-item" href="{% url 'create_registro_hora_extra' %}">Novo</a>
+        </div>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
