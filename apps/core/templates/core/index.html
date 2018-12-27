@@ -2,13 +2,75 @@
 {% load i18n %}
 
 {% block main %}
+    <br>
    <div class="row">
-    <div class="col-sm">
+       <div class="col">
+        <div class="card" style="width: 18rem;">
+          <h2>
+              <i class="fa fa-users" style="font-size:48px;color:blue"></i>
+              <a href="{% url 'list_funcionarios' %}">Empregados</a>
+          </h2>
+        </div>
+      </div>
 
+       <div class="col">
+        <div class="card" style="width: 18rem;">
+          <h2>
+              <i class="fa fa-clock-o" style="font-size:48px;color:blue"></i>
+              <a href="{% url 'list_hora_extra' %}">Banco de horas</a>
+          </h2>
+        </div>
+      </div>
+
+       <div class="col">
+        <div class="card" style="width: 18rem;">
+
+          <h2>
+              <i class="fa fa-book" style="font-size:48px;color:blue"></i>
+              <a href="{% url 'list_hora_extra' %}">Documentos</a>
+          </h2>
+        </div>
+      </div>
+   </div>
+
+    <br>
+   <div class="row">
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Funcionario</h5>
+            <ul>
+                <li>N. funcionarios: {{ total_funcionarios }}</li>
+                <li>N. func. de ferias: {{ total_funcionarios_ferias }}</li>
+                <li>N. func. de doc pendente: {{ total_funcionarios_doc_pendente }}</li>
+            </ul>
+          </div>
+        </div>
     </div>
 
-    <div class="col-sm">
-
+    <div class="col">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Banco de horas</div>
+          <div class="card-body">
+              <ul>
+                  <li>Banco de horas pendente:</li>
+                  <li>Banco de horas tirado::</li>
+              </ul>
+          </div>
+        </div>
     </div>
+       <div class="col">
+    <div class="card border-danger mb-3" style="max-width: 18rem;">
+      <div class="card-header">Documentos</div>
+      <div class="card-body text-danger">
+          <ul>
+              <li>Tot. func. doc ok:</li>
+              <li>Tot. func. doc faltantes:</li>
+              <li>Tot func. faltant. RG:</li>
+          </ul>
+      </div>
+    </div>
+    </div>
+
   </div>
 {% endblock %}

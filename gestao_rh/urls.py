@@ -29,7 +29,6 @@ urlpatterns += i18n_patterns(
     path('empresa/', include('apps.empresas.urls')),
     path('documento/', include('apps.documentos.urls')),
     path('horas-extras/', include('apps.registro_hora_extra.urls')),
-    path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
 
     url(r'^', include(router.urls)),

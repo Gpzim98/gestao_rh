@@ -34,7 +34,7 @@ class FuncionariosList(ListView):
 
 class FuncionarioEdit(UpdateView):
     model = Funcionario
-    fields = ['nome', 'departamentos']
+    fields = ['nome', 'departamentos', 'de_ferias']
 
 
 class FuncionarioDelete(DeleteView):
