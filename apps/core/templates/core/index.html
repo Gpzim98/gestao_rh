@@ -53,8 +53,8 @@
           <div class="card-header">Banco de horas</div>
           <div class="card-body">
               <ul>
-                  <li>Banco de horas pendente:</li>
-                  <li>Banco de horas tirado::</li>
+                  <li>Horas pendentes: {{ total_hora_extra_pendente }}</li>
+                  <li>Horas utilizadas: {{ total_hora_extra_utilizadazs }}</li>
               </ul>
           </div>
         </div>
@@ -64,9 +64,9 @@
       <div class="card-header">Documentos</div>
       <div class="card-body text-danger">
           <ul>
-              <li>Tot. func. doc ok:</li>
-              <li>Tot. func. doc faltantes:</li>
-              <li>Tot func. faltant. RG:</li>
+              <li>Tot. func. doc ok: {{ total_funcionarios_doc_ok }}</li>
+              <li>Tot. func. doc faltantes: {{ total_funcionarios_doc_pendente }}</li>
+              <li>Tot func. faltant. RG: {{ total_funcionarios_rg }}</li>
           </ul>
       </div>
     </div>

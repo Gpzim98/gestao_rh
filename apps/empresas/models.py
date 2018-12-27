@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.db.models import Q
 
 
 class Empresa(models.Model):
@@ -15,7 +16,11 @@ class Empresa(models.Model):
 
     @property
     def total_funcionarios_doc_pendente(self):
-        return self.funcionario_set.filter(documento=None).count()
+        return self.funcionario_set.filter(Q(documento=None)).count()
+
+    @property
+    def total_funcionarios_doc_ok(self):
+        return self.funcionario_set.filter(~Q(documento=None)).count()
 
     def __str__(self):
         return self.nome
