@@ -22,9 +22,12 @@
     </li>
 {% endfor %}
 </ul>
+
+{% if object %}
 <a href="{% url 'create_documento' object.id %}" class="btn btn-success">
     Adicionar documento
 </a>
+{% endif %}
 
 <br>
 <h2>Banco de horas</h2>
